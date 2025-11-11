@@ -7,9 +7,6 @@ import FilterMenu from "./components/FilterMenu";
 export default function Home() {
   return (
     <div className="grid max-w-125 col-[full] grid-cols-subgrid">
-      <Link className="col-[full]" href="/detalje">
-        <h1>Klik her for detalje</h1>
-      </Link>
       <FilterMenu />
       <PetList />
       <Menu />
