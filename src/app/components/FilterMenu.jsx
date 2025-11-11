@@ -17,7 +17,11 @@ const FetchCategories = async () => {
   const response = await fetch("https://dummyjson.com/products/categories");
   const categories = await response.json();
   console.log(categories);
-  return categories.map((category) => <li className="flex p-[14px_22px] border-solid border-1 rounded-4xl border-neutral-300 gap-2 w-auto text-nowrap shadow-sm">{category.name}</li>);
+  return categories.map((category) => (
+    <li key={category.slug} className="flex p-[14px_22px] border-solid border-1 rounded-4xl border-neutral-300 gap-2 w-auto text-nowrap shadow-sm">
+      {category.name}
+    </li>
+  ));
 };
 
 export default FilterMenu;
