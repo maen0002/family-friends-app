@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FiStar } from "react-icons/fi";
 import { FaCircle } from "react-icons/fa";
 import { Suspense } from "react";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 export default async function details({ params }) {
   const { id } = await params;
@@ -14,7 +15,7 @@ export default async function details({ params }) {
     <Suspense fallback={<div>Loading Product</div>}>
       <div className="col-start-[2]">
         <Link href="/">
-          <h1>Klik her for forside</h1>
+          <FaArrowAltCircleLeft className="w-9 h-9 mt-4" />
         </Link>
         <div className="grid grid-cols-1 grid-rows-1 rounded-4xl inset-shadow-sm shadow-lg mb-5 mt-5 aspect-square">
           <Image src={product.thumbnail} width={300} height={200} alt={product.title} className=" col-start-1 col-end-2 row-start-1 row-end-2 place-self-center" />

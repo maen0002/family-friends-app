@@ -4,17 +4,19 @@ import { FiStar } from "react-icons/fi";
 import { FaCircle } from "react-icons/fa";
 import { Suspense } from "react";
 
-const PetCard = () => {
+const PetCard = ({ category }) => {
   return (
     <Suspense fallback={<div>Loading Products...</div>}>
-      <FetchProducts />
+      <FetchProducts category={category} />
     </Suspense>
   );
 };
 
-const FetchProducts = async () => {
+const FetchProducts = async ({ category }) => {
   "use server";
-  const response = await fetch("https://dummyjson.com/products");
+  const url = category ? `https://dummyjson.com/products/category/${category}` : "https://dummyjson.com/products";
+  console.log(category);
+  const response = await fetch(url);
   const { products } = await response.json();
   return products.map((product) => (
     <Link href={`/detalje/${product.id}`} key={product.id} className="grid grid-cols-2 grid-rows-[minmax(0px,fit-content_minmax(0px,fit-content_minmax(0px,fit-content)))] rounded-2xl w-fit h-fit bg-white shadow-md">
