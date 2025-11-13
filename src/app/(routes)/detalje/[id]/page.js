@@ -28,7 +28,9 @@ export default async function details({ params }) {
         <h2 className="mb-2">{product.price}€</h2>
         <div className="flex gap-3">
           {tags.map((tag) => (
-            <p className="bg-blue-500 p-[5px_15px] rounded-4xl">{tag}</p>
+            <p className="bg-blue-500 p-[5px_15px] rounded-4xl" key={tag}>
+              {tag}
+            </p>
           ))}
         </div>
         <p className="mt-4">{product.description}</p>
